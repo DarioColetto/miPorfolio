@@ -1,0 +1,88 @@
+
+<div class="component">
+    <div class="container-header-component">
+        <h2 class="header-title-component">Agregar Formacion</h2>
+    </div>
+
+    <form class="form" (ngSubmit)="onSubmit()" [formGroup]="formacion_form" > 
+    
+        <label for="Input1" class="form-label" >Nombre de Institucion</label>
+        <input 
+        name="nombre_institucion"
+        type="text" 
+        class="form-control" 
+        formControlName="nombre_institucion" 
+        id="Input1" 
+        placeholder="Nombre de Institucion"
+        >
+
+
+        <label for="Input2" class="form-label" >Titulo</label>
+        <input 
+        type="text" 
+        class="form-control" 
+        formControlName="titulo" 
+        id="Input2" 
+        placeholder="Titulo"
+        >
+        
+    
+        <label for="Textarea1" class="form-label">Descripcion</label>
+        <textarea 
+        
+        class="form-control"
+        formControlName="descripcion" 
+        id="Textarea1" 
+        rows="2"
+        placeholder="Descripcion"
+        ></textarea>
+    
+        <label for="Input3" class="form-label" >Año de Inicio</label>
+        <input 
+        type="text" 
+        class="form-control" 
+        formControlName="ano_inicio" 
+        id="Input3" 
+        placeholder="Año de Inicio"
+        >
+
+
+
+        <label for="Input4" class="form-label" >Año de Finalizacion</label>
+        <input 
+        type="text" 
+        class="form-control" 
+        formControlName="ano_finalizacion" 
+        id="Input4" 
+        placeholder="Año de Finalizacion"
+        >
+
+        <label for="Input5" class="form-label" >Horas de Duracion</label>
+        <input 
+        
+        type="text" 
+        class="form-control" 
+        formControlName="duracion" 
+        id="Input5" 
+        placeholder="Ej: 60"
+        >
+
+        <label for="Input6" class="form-label" >Url Logo</label>
+        <input 
+        
+        type="text" 
+        class="form-control" 
+        formControlName="url_logo" 
+        id="Input6" 
+        placeholder="url"
+        >
+    
+        <div class="form-btn-group">
+            <button type="submit"   class="btn btn-primary" id="btnFormAdd">Guardar</button>
+            <button type="button"  routerLink="/formacion" class="btn btn-primary">Cancelar</button>
+            
+        </div> 
+</form>
+
+
+</div>

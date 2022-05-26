@@ -1,0 +1,45 @@
+
+
+<div class="container">
+    <div class="container-header-component" >
+        
+        <h2 class="header-title-component">Experiencia</h2>
+        <button (click)="add()" class ="btn btn-outline-secondary" id="add-button"><i class="fa fa-plus"></i></button>
+    </div>
+
+
+    <div class="container" id="container-cards">
+        
+        <div *ngFor="let experiencia of experienciaList" class="container-fluid">
+            
+            <div class="row align-items-center" id="card-info-container"> 
+        
+                <div class="col-2">
+                    <img  class="img-fluid" id="logo" src={{experiencia.url_logo}}>
+                </div>
+                <div class="col ">  
+                    <div class="container-fluid" id="card-info">     
+                               
+                                <h3 class="card-title">{{experiencia.nombre_empresa}}</h3>
+                                <h4>{{experiencia.puesto}}</h4>
+                                <p >{{experiencia.descripcion}}</p>                      
+                                <p *ngIf="experiencia.ano_inicio">{{experiencia.ano_inicio}}</p>
+                                <p *ngIf="experiencia.ano_finalizacion !=0; else elseBlock">{{experiencia.ano_finalizacion}}</p>
+                                <ng-template #elseBlock>Continua</ng-template>
+                                <a [href]="experiencia.web">WEB<i class="bi bi-globe"></i></a>          
+                    </div>
+                </div>
+                <div class="col-1 "> 
+                <div class="btn-group" role="group" id="boton-group">
+                    <button  class="btn btn-outline-secondary"  (click)="update(experiencia.id_experiencia)" id="btnEdit"><i class="fa fa-pencil" ></i></button>
+                    <button type="button"  (click)="del(experiencia.id_experiencia)"  class="btn btn-outline-secondary" id="btnDel"><i class="fa fa-minus"></i></button>
+                </div>
+            </div>
+                
+        </div> 
+            
+        </div>
+    </div>
+</div>
+
+

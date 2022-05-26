@@ -1,0 +1,48 @@
+<div class="component">
+    <div class="container-header-component">
+        <h2 class="header-title-component">Agregar Formacion</h2>
+    </div>
+
+    <form class="form" (ngSubmit)="onSubmit()" [formGroup]="tecnologia_form" > 
+    
+        <label for="Input1" class="form-label" >Nombre Tecnologia</label>
+        <input 
+        name="nombre_institucion"
+        type="text" 
+        class="form-control" 
+        formControlName="nombre_tecnologia" 
+        id="Input1" 
+        placeholder="Nombre Tecnologia"
+        >
+
+
+        <label for="Input2" class="form-label" >Descripcion</label>
+        <input 
+        type="text" 
+        class="form-control" 
+        formControlName="descripcion" 
+        id="Input2" 
+        placeholder="Descripcion"
+        >
+        
+    
+        <label for="Input3" class="form-label" >Nivel</label>
+        <input 
+        type="text" 
+        class="form-control" 
+        formControlName="nivel" 
+        id="Input3" 
+        placeholder="Nivel"
+        >
+
+    
+        <div class="form-btn-group">
+            <button type="submit"   class="btn btn-primary" id="btnFormAdd">Guardar</button>
+            <button type="button"  (click)="cancel()" class="btn btn-primary">Cancelar</button>
+            
+        </div> 
+</form>
+
+
+</div>
+

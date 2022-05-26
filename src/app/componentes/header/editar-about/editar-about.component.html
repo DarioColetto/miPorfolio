@@ -1,0 +1,69 @@
+
+<div class="component">
+    <div class="container-header-component">
+        <h2 class="header-title-component">Editar Profile</h2>
+    </div>
+
+    <form class="form" (ngSubmit)="onSubmit()" [formGroup]="about_form" > 
+    
+
+        <label for="Input1" class="form-label" >Nombre</label>
+        <input 
+        
+        type="text" 
+        class="form-control" 
+        formControlName="nombre" 
+        id="Input1" 
+        placeholder="Nombre"
+        
+        >
+
+        <label for="Textarea1" class="form-label">Descripcion</label>
+        <textarea 
+        
+        class="form-control"
+        formControlName="descripcion" 
+        id="Textarea1" 
+        rows="2"
+        placeholder="Descripcion"
+        ></textarea>
+    
+    
+        <label for="Input3" class="form-label" >Foto</label>
+        <input 
+        
+        type="text" 
+        class="form-control" 
+        formControlName="foto_perfil" 
+        id="Input3" 
+        placeholder="Foto Url:"
+        >
+
+        <label for="Input4" class="form-label" >Email</label>
+        <input 
+        
+        type="text" 
+        class="form-control" 
+        formControlName="email" 
+        id="Input4" 
+        placeholder="Email"
+        >
+
+        <label for="Input5" class="form-label" >Tel</label>
+        <input 
+        
+        type="text" 
+        class="form-control" 
+        formControlName="tel" 
+        id="Input5" 
+        placeholder="Tel:"
+        >
+
+        <div class="form-btn-group">
+            <button type="submit"   class="btn btn-primary" id="btnFormAdd">Guardar</button>
+            <button type="button" (click)="cancel()"  class="btn btn-primary">Cancelar</button>
+        </div> 
+</form>
+
+
+</div> 

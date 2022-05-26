@@ -1,0 +1,91 @@
+
+<div class="container" id="form-cont">
+    <form class="form"  (ngSubmit)="onSubmit()"  [formGroup]="login_form">
+      
+      <div class="form-group row">
+        <label for="inputUser" class="col-sm-2 col-form-label">Username</label>
+        <div class="col">
+          <input 
+          type="email" 
+          class="form-control"
+          formControlName="username" 
+          id="inputUser" 
+          placeholder="Username"
+          
+          >
+
+          <div *ngIf="Username?.errors && Username?.touched"> 
+  
+            <small *ngIf="Username?.hasError('required')" class="text-danger"> 
+              Username es requerido
+            </small>
+          </div>
+  
+          
+        </div>
+      </div>
+
+
+
+        <div class="form-group row">
+            <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+            <div class="col">
+              <input 
+              type="email" 
+              class="form-control"
+              formControlName="email" 
+              id="inputEmail" 
+              placeholder="Email"
+              
+              >
+
+              <div *ngIf="Email?.errors && Email?.touched"> 
+      
+                <small *ngIf="Email?.hasError('required')" class="text-danger"> 
+                  El mail es requerido
+                </small>
+                <small *ngIf="Email?.hasError('email')" class="text-danger"> 
+                  El formato del email debe ser valido
+                </small>
+              </div>
+      
+              
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+            <div class="col">
+              <input 
+              type="password" 
+              class="form-control"
+              formControlName="password" 
+              id="inputPassword" 
+              placeholder="Password">
+
+
+              <div *ngIf="Password?.errors && Password?.touched"> 
+
+                <small *ngIf="Password?.hasError('required')" class="text-danger">
+                  El password es requerido
+                </small> 
+                  
+                <small *ngIf="Password?.hasError('minlength')" class="text-danger"> 
+                  El password debe tener al menos 8 caracteres
+                </small>
+              </div>
+            </div>
+          </div>  
+ 
+
+        
+            <div class="col" id="btns">
+                <button  type="submit" class=" col btn btn-primary" id="sigIn-btn">Log in</button>
+                <button type ="button" routerLink="/" class=" col btn btn-secondary" >Cancel</button>
+            </div>
+        
+    </form>
+
+</div>
+
+

@@ -1,0 +1,36 @@
+#footer{
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+#social-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 3%;
+}
+
+
+.social-box{
+    width: 30px;
+    height: 30px;
+
+}
+
+#contact{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+
+
+}
+
+#contact p{
+float: left;
+margin: 2%;}
+
+#contact i{
+    float:right;
+    margin:2%}

@@ -1,0 +1,15 @@
+
+<div class="container" id="habilidades-container">
+    
+  <div class="container-header-component" >
+    <h2 class="header-title-component">Habilidades</h2>
+    <button *ngIf="item"  (click)="add_habilidad()" class ="btn btn-outline-secondary" id="add-button"><i class="fa fa-plus"></i></button>
+  </div>
+  
+  <app-agregar-habilidad  *ngIf="cancelEvent" (cancelEvent)="cancelHandler()"></app-agregar-habilidad>
+
+  <div class="container" id="char-container">
+    <canvas id="lenguajesChart"></canvas>
+  </div>
+
+</div>

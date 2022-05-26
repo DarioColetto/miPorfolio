@@ -1,1 +1,125 @@
 /* You can add global styles to this file, and also import other style files */
+
+body{
+    background-color: rgb(40,40,40);
+    color: white;
+    width: auto;
+    height: auto;
+
+    position: relative;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+.component{
+    display: flex;
+    flex-direction: column;
+    width:auto;
+    
+}
+
+.container-header-component{
+    display: flex;
+    
+    
+
+    
+}
+
+
+.btn.btn-secondary{
+    float: left;
+
+    margin-left: 2%;
+  }
+  
+
+  #add-button{
+    display: flex;
+    margin-left: 2%;
+    align-items: center;
+    
+    
+
+  }
+#add-button:after{
+
+  content: "Add";
+  }
+
+#add-button i{
+  margin-right: 5px;
+} 
+  
+
+  
+#card-info-container{
+
+    margin-top: 2%;
+    margin-bottom: 2%;
+
+  }
+  
+  #card-info{
+     padding: 2%;
+      background: rgb(70, 70, 70);
+      border-radius: 10px;
+      
+         
+  }
+  
+
+
+.form{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  margin: 1% 2% 1% 5% ; 
+  padding: 2%;
+
+  background: rgb(70, 70, 70);
+  border-radius: 10px;
+  
+
+  
+  align-content: center;
+}
+
+.form .form-btn-group {
+ display: flex;
+ flex-direction: row;
+ 
+
+}
+
+.form .form-btn-group button{
+  margin-top: 3px;
+  margin-right: 5px;
+}
+
+/* h3{
+  font-size: 3vw;
+  
+  
+}
+
+h4{font-size: 2vw;}
+
+p{
+  font-size: 1.5vw;
+} */
+
+#logo{
+  width: 25vw;
+  height: auto;
+
+}
+
+/* .fa.fa-pencil,.fa.fa-minus{
+  width: 10%;
+  height:10%;
+} */

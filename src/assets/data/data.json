@@ -1,0 +1,39 @@
+{"name":"Dario Coletto",
+"fotoDePerfil": "./assets/FotoPerfil.jpg",
+"bannerImage": "./assets/digitalBG.jpg",
+
+"about":"Aca va algo sobre mi y mis cosas",
+
+"education":[{
+    "title": "Máster en diseño y desarollo web",
+    "school": "Corporación Informática",
+    "content":"HTML5,PHP, Dreamweaver CS5, Photoshop CS6, Posicionamiento web y optimización en buscadores",
+    "year":"En curso",
+    "duracion":""
+    },
+{
+    "title": "Certificado de Profesionalidad: Programación en Lenguajes Estructururados",
+    "school": "Atrium Formación",
+    "content":"Sitemas operativos y aplicaciones informáticas, Diseño y Programación de base de datos relacionales (MySQL, SQLServer). Python, Java",
+    "year":"2022",
+    "duracion":"620"
+    },
+{
+    "title": "Certificación #Yo Programo",
+    "school": "Ministerio de Desarrollo Productivo Argentina, INTA",
+    "content":"Arquitectura web, Desarrollo de Aplicaciones Web: Front-End Estático y  Dinámico, HTML5, CSS, Javascript, TypeScript. FrameWorks,: Angular, Boostrap, SpringBoot",
+    "year":"2022",
+    "duracion":"480"
+    
+    },
+{
+    "title": "Curso Especializado Python for Everyone",
+    "school": "Michigan University",
+    "content":"Data Structures, Access to Web Data (Retrieving, Scrapping), Data Bases (Retrieving, Processing, and Visualizing Data), SQLite ",
+    "year":"2020",
+    "duracion":"96"
+    
+    }
+
+]
+}

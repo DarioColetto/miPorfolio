@@ -1,0 +1,28 @@
+
+
+<div class="container" id="footer"> 
+    <div class="container-header-component">
+        <button *ngIf="item" (click)="add_social()" class="btn btn-outline-secondary" id="add-button"><i class="fa fa-plus"></i></button>
+    </div>
+    
+
+    <div class="container" id="contact">
+            <div class="col"><i class="fa fa-envelope-o" ></i></div>
+            <div class="col"><p>{{about.email}}</p> </div>
+        
+    </div>
+    
+    <hr class="border-primary border-3 opacity-75">
+
+    <div class="" id="social-container">
+
+        <div *ngFor="let social of socialList" class="social-box" >
+
+            <a>
+                <i [class]="social.bootstrap_class" aria-hidden="true"></i>
+            </a>
+        </div>
+
+    </div>
+</div>    
+

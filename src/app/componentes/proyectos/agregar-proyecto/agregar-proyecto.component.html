@@ -1,0 +1,54 @@
+
+<div class="component">
+    <div class="container-header-component">
+        <h2 class="header-title-component">Agregar Proyecto</h2>
+    </div>
+
+    <form class="form" (ngSubmit)="onSubmit()" [formGroup]="proyecto_form" > 
+    
+        <label for="Input1" class="form-label" >Nombre de Proyecto</label>
+        <input 
+        
+        type="text" 
+        class="form-control" 
+        formControlName="nombreProyecto" 
+        id="Input1" 
+        placeholder="Nuevo Proyecto">
+    
+    
+        <label for="Textarea1" class="form-label">Descripcion</label>
+        <textarea 
+        
+        class="form-control"
+        formControlName="descripcion" 
+        id="Textarea1" 
+        rows="2"
+        placeholder="Descripcion"></textarea>
+    
+    
+        <label for="Textarea2" class="form-label">Tecnologias</label>
+        <textarea 
+        
+        class="form-control" 
+        formControlName="tecnologias"
+        id="Textarea2" 
+        rows="2" 
+        placeholder="Tecnologia"></textarea>
+
+        <label for="Input2" class="form-label" >Url Logo</label>
+        <input 
+        
+        type="text" 
+        class="form-control" 
+        formControlName="url_logo" 
+        id="Input2" 
+        placeholder="Url Logo">
+    
+        <div class="form-btn-group">
+            <button type="submit"  class="btn btn-primary" id="btnFormAdd">Agregar</button>
+            <button type="button" routerLink="/proyectos" class="btn btn-primary">Cancelar</button>
+        </div> 
+</form>
+
+
+</div>

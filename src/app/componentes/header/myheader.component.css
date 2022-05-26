@@ -1,0 +1,110 @@
+
+#argLogo{
+    
+    width: auto;
+    height: 100px;
+    max-width: 250px;
+}
+
+
+.conteiner-social{
+    display: flex;
+    height: auto;
+    align-content: space-between;
+    align-items: center;
+
+
+}
+
+
+
+#login-btn{
+
+    
+    background-color: rgb(40,40,40);
+    color: white;
+    border-radius: 5px;
+    margin-right: 2%;
+    float: right;
+
+}
+#login-btn:hover{
+    background-color: grey;
+}
+
+
+#socialButtons{    
+    width: 40px;
+    height: 40px;
+    padding: 40px;
+
+}
+
+
+#bann{
+    display: flex;
+    height: fit-content;
+    justify-content: left;
+    padding: 0%;
+    margin-left: 22px;
+    
+}
+#banner{
+    
+    height: auto;
+    max-height: 250px;
+    object-fit: cover;
+    z-index: 1;
+    mask-image: linear-gradient(to right ,transparent ,black );
+    
+
+}
+
+#fotoPerfil{
+    width: 250px;
+    height: 250px;
+
+    object-fit: cover;
+    border-radius: 10%;
+    /* position: absolute; */
+    z-index: 2;
+    /* margin-top:-100px;
+    margin-left:-300px; */
+    
+}
+
+.myName{
+    font-size: 24px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#container-about1{
+    margin-top: 3%;
+    margin-bottom: 3%;
+
+}
+
+#container-about2{
+    
+    align-items: center;
+    
+}
+
+.container #container-about2 #btnEdit{
+    margin-left: 2%;
+    height: 98%;
+
+}
+
+
+#nav{
+    
+    align-items: center;
+    justify-content: left;
+    width: 100%;
+    background-color: rgb(40,40,40);
+    z-index: 1;
+    box-shadow: 0, 2px, 5px, rgb(18, 17, 17);
+    margin-bottom: 3%;
+
+}
