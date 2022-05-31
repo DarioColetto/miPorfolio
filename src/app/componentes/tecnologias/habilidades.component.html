@@ -1,15 +1,20 @@
 
-<div class="container" id="habilidades-container">
+<div class="container" >
     
-  <div class="container-header-component" >
-    <h2 class="header-title-component">Habilidades</h2>
-    <button *ngIf="item"  (click)="add_habilidad()" class ="btn btn-outline-secondary" id="add-button"><i class="fa fa-plus"></i></button>
+  <div class="container d-flex" >
+    <h2>Tecnologias</h2>
+    <div  *ngIf="isLogged" class="btn-group ms-3" role="group">
+      <button   (click)="add_habilidad()" class="d-flex flex-row align-items-center btn btn-outline-secondary">
+        <i class="fa fa-plus"></i>
+        <div class="align-middle ms-2">Add</div>
+      </button>
+      <button   class="btn btn-outline-secondary" routerLink="/home/tecnologias-list" id="btnEdit"><i class="fa fa-pencil" ></i></button>
+    </div>
   </div>
   
-  <app-agregar-habilidad  *ngIf="cancelEvent" (cancelEvent)="cancelHandler()"></app-agregar-habilidad>
 
-  <div class="container" id="char-container">
-    <canvas id="lenguajesChart"></canvas>
+  <div class="d-flex w-50 mt-4" >
+    <canvas   height="100"  id="lenguajesChart"></canvas>
   </div>
 
 </div>

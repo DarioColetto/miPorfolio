@@ -1,0 +1,57 @@
+<div class="container"> 
+    <div class="container d-flex align-items-center">
+        <h2>Editar Tecnologias</h2>
+        <div  *ngIf="isLogged" class="btn-group ms-3" role="group" id="boton-group">   
+            <button   routerLink="/home/add-tecnologia" class="d-flex flex-row align-items-center btn btn-outline-secondary">
+                <i class="fa fa-plus"></i>
+                <div class="align-middle ms-2">Add</div>
+            </button>
+            <button   routerLink="/home/tecnologias" class="d-flex flex-row align-items-center btn btn-outline-secondary">
+                <i class="fa fa-chevron-left"></i>
+                <div class="align-middle ms-2">Back</div>
+            </button>
+        </div>
+    </div>
+
+    <div class="container mt-3">
+
+    <table class="table table-dark">
+        <thead>
+        <tr>
+            
+            <th scope="col">Tecnologia</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Nivel</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let tecnologia of tecnologias_list">
+            
+            <td>{{tecnologia.nombre_tecnologia}}</td>
+                <td>{{tecnologia.descripcion}}</td>
+                <td>{{tecnologia.nivel}}</td>
+                <td *ngIf="isLogged">
+                    
+                        <div class="btn-group" role="group" id="boton-group">
+                                <button  class="btn btn-outline-secondary" (click)="update(tecnologia.id_tecnologia)" ><i class="fa fa-pencil" ></i></button>
+                                <button type="button" (click)="openModal(template, tecnologia.id_tecnologia)" class="btn btn-outline-secondary"><i class="fa fa-minus"></i></button>
+                        </div>  
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+    
+    <ng-template #template>
+            <div class="modal-body text-center" id="modal">
+                    <div class="alert alert-warning" role="alert">
+                           Seguro que desea <strong>eliminar</strong>
+                    </div>
+              <button type="button" class="btn btn-primary" (click)="confirm()" >Yes</button> 
+              <button type="button" class="btn btn-danger"  (click)="decline()" >No</button>
+            </div>
+    </ng-template>

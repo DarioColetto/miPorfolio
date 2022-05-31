@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="container-header-component">
+        <h2 class="header-title-component">Agregar Social</h2>
+    </div>
+
+    <form class="form w-50" (ngSubmit)="onSubmit()" [formGroup]="social_form" > 
+    
+        <label for="Input1" class="form-label" >Nombre</label>
+        <input 
+        type="text" 
+        class="form-control" 
+        formControlName="nombre_social" 
+        id="Input1" 
+        placeholder="/user"
+        >
+
+        <label for="Input2" class="form-label" >Url</label>
+        <input 
+        type="text" 
+        class="form-control" 
+        formControlName="url_social" 
+        id="Input2" 
+        placeholder="Url"
+        >
+
+
+
+        
+    
+        <label for="Input3" class="form-label" >Icon Class</label>
+        <input 
+        type="text" 
+        class="form-control" 
+        formControlName="bootstrap_class" 
+        id="Input3" 
+        placeholder="bootsrap or fontawsome4 icon class"
+        >
+
+    
+        <div class="form-btn-group mt-3">
+            <button type="submit"   class="btn btn-primary" id="btnFormAdd">Guardar</button>
+            <button type="button"  routerLink="/home/social-list" class="btn btn-primary">Cancelar</button>
+            
+        </div> 
+</form>

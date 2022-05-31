@@ -1,17 +1,17 @@
 
-<div class="component">
-    <div class="container-header-component">
-        <h2 class="header-title-component">Agregar Proyecto</h2>
-    </div>
+<div class="container">
+    
+    <h2 class="header-title-component">Agregar Proyecto</h2>
+    
 
-    <form class="form" (ngSubmit)="onSubmit()" [formGroup]="proyecto_form" > 
+    <form class="form w-75 mt-4" (ngSubmit)="onSubmit()" [formGroup]="proyecto_form" > 
     
         <label for="Input1" class="form-label" >Nombre de Proyecto</label>
         <input 
         
         type="text" 
         class="form-control" 
-        formControlName="nombreProyecto" 
+        formControlName="nombre_proyecto" 
         id="Input1" 
         placeholder="Nuevo Proyecto">
     
@@ -44,9 +44,9 @@
         id="Input2" 
         placeholder="Url Logo">
     
-        <div class="form-btn-group">
+        <div class="form-btn-group mt-3">
             <button type="submit"  class="btn btn-primary" id="btnFormAdd">Agregar</button>
-            <button type="button" routerLink="/proyectos" class="btn btn-primary">Cancelar</button>
+            <button type="button" routerLink="/home/proyectos" class="btn btn-primary">Cancelar</button>
         </div> 
 </form>
 

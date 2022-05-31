@@ -57,9 +57,14 @@ get Password(){
 onSubmit(){
   
   
-  this.User=this.login_form.value
+  this.User=this.login_form.value;
   
-  this.autenticationService.login(this.User)
+  this.autenticationService.login(this.User);
+
+  this.router.navigate(['home/welcome'])    
+  .then(() => {
+    window.location.reload();
+  })
   
 
   

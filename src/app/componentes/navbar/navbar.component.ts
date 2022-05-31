@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,14 +10,21 @@ import { ViewportScroller } from '@angular/common';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private viewportScroller: ViewportScroller) { }
+  constructor(private router:Router, private authService:AutenticacionService) { }
+
+  isLogged= this.authService.logged
 
   ngOnInit(): void {
   }
 
 
-  onClickScroll(elementId:string):void {
-    this.viewportScroller.scrollToAnchor(elementId);
-  }
 
+  logout(){
+    this.authService.logout();
+    this.router.navigate(["/"])  
+    .then(() => {
+      window.location.reload();
+    })
+    
+  }
 }

@@ -33,7 +33,7 @@ export class SocialService {
   }
 
   update(id: number, Social: Social) {
-    return this.http.put(`${this.url}/update/${id}`, Social)
+    return this.http.put<any>(`${this.url}/update/${id}`, Social)
   }
 
 }

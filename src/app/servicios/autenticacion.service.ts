@@ -1,9 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Router } from '@angular/router';
-
-import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 import { User } from '../model/User';
 
 @Injectable({
@@ -15,7 +11,7 @@ export class AutenticacionService {
 
   
   
-  constructor(private http: HttpClient, private router: Router) { };
+  constructor(private http: HttpClient) { };
 
 
   login(user: User ) {
@@ -23,11 +19,10 @@ export class AutenticacionService {
     this.http.post<any>(`${this.url}/${user.username}`, user )
     .subscribe(response=>{
   
-      console.log(response)
 
       localStorage.setItem('token', response.token)
 
-      console.log("you are in")
+      console.log("You are in!")
     })
     
    
@@ -42,7 +37,7 @@ export class AutenticacionService {
   }
 
   //Servicio para verificar si existe la sesion
-  public get loeged(): boolean {
+  public get logged(): boolean {
     return (localStorage.getItem('token') !== null);
   }
 

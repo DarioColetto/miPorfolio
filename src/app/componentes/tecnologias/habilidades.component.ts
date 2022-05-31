@@ -3,6 +3,9 @@ import { Chart } from 'node_modules/chart.js';
 import { TecnologiasService } from 'src/app/servicios/tecnologias.service';
 import { Tecnologia } from 'src/app/model/Tecnologia';
 import { ViewportScroller } from '@angular/common';
+import { Router } from '@angular/router';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
+
 
 
 
@@ -17,24 +20,21 @@ export class HabilidadesComponent implements OnInit {
   tecnologiasList!: Tecnologia[];
 
 
-  cancelEvent: boolean = false
-  
-  @Input() item: any;
+  constructor(private tecnologiasServive: TecnologiasService, 
+    private router:Router,
+    private authService:AutenticacionService ) { }
 
+    isLogged= this.authService.logged
 
-  constructor(private tecnologiasServive: TecnologiasService,private viewportScroller: ViewportScroller,) { }
 
   add_habilidad(){
 
-    this.cancelEvent = true
+    this.router.navigate(["home/add-tecnologia"])
     
-    this.viewportScroller.scrollToAnchor('habilidad');
+
 
   }
 
-  cancelHandler(): void {
-    this.cancelEvent = false;
-  }
 
   ngOnInit(): void {
 

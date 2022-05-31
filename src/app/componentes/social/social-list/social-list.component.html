@@ -1,0 +1,58 @@
+<div class="container"> 
+    <div class="container d-flex align-items-center">
+        <h2>Editar Social</h2>
+        <div  *ngIf="isLogged" class="btn-group ms-3" role="group" id="boton-group">   
+            <button   routerLink="/home/social-add" class="d-flex flex-row align-items-center btn btn-outline-secondary">
+                <i class="fa fa-plus"></i>
+                <div class="align-middle ms-2">Add</div>
+            </button>
+            <button   routerLink="/" class="d-flex flex-row align-items-center btn btn-outline-secondary">
+                <i class="fa fa-chevron-left"></i>
+                <div class="align-middle ms-2">Back</div>
+            </button>
+        </div>
+    </div>
+
+<div class="container mt-3">
+
+    <table class="table table-dark">
+        <thead>
+        <tr>
+            
+            <th scope="col">/user</th>
+            <th scope="col">Url</th>
+            <th scope="col">Icon Class</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let social of social_list">
+            
+            <td>{{social.nombre_social}}</td>
+            <td>{{social.url_social}}</td>
+            <td>{{social.bootstrap_class}}</td>
+            <td *ngIf="isLogged">
+                 
+                    <div class="btn-group" role="group" id="boton-group">
+                            <button  class="btn btn-outline-secondary" (click)="update(social.id_social)" ><i class="fa fa-pencil" ></i></button>
+                            <button type="button" (click)="openModal(template, social.id_social)" class="btn btn-outline-secondary"><i class="fa fa-minus"></i></button>
+                    </div>  
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+
+    
+<ng-template #template>
+    <div class="modal-body text-center" id="modal">
+        <div class="alert alert-warning" role="alert">
+        Seguro que desea <strong>eliminar</strong>
+        </div>
+            <button type="button" class="btn btn-primary" (click)="confirm()" >Yes</button> 
+            <button type="button" class="btn btn-danger"  (click)="decline()" >No</button>
+        </div>
+</ng-template>
+

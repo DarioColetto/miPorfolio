@@ -1,5 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Experiencia } from 'src/app/model/Experiencia';
 import { ExperienciaService } from 'src/app/servicios/experiencia.service';
 
@@ -10,7 +11,7 @@ import { ExperienciaService } from 'src/app/servicios/experiencia.service';
 })
 export class AgregarExperienciaComponent implements OnInit {
 
-  @Output() cancelEvent = new EventEmitter();
+  
   
   add_experiencia_form = this.fb.group({
     
@@ -25,9 +26,11 @@ export class AgregarExperienciaComponent implements OnInit {
 
   new_experiencia!:Experiencia;
   
-  constructor(private experienciaService: ExperienciaService, private fb:FormBuilder,
-    
-   ) { }
+  constructor(
+    private experienciaService: ExperienciaService, 
+    private fb:FormBuilder,
+    private router:Router
+   ) {}
 
   ngOnInit(): void {}
 
@@ -36,19 +39,12 @@ export class AgregarExperienciaComponent implements OnInit {
   onSubmit():void{
     
 
-  this.new_experiencia=this.add_experiencia_form.value
-    this.experienciaService.add( this.new_experiencia).subscribe(data=>{
-     
-      this.ngOnInit()
-
-    })
-    
+    this.new_experiencia=this.add_experiencia_form.value
+    this.experienciaService.add( this.new_experiencia).subscribe()
+    this.router.navigate(['home/experiencia'])
+    .then(() => {
+      window.location.reload();
+    });
   }
 
-   cancel():void{
-    console.log("Canceled")
-    this.cancelEvent.emit();
-    
-    
-  }
 }

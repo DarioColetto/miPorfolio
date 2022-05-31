@@ -16,7 +16,7 @@ import { ActivatedRoute } from '@angular/router';
 export class EditarformacionComponent implements OnInit {
 
  
-  
+  id!:number;
   updated_formacion!: Formacion;
 
 
@@ -42,13 +42,12 @@ export class EditarformacionComponent implements OnInit {
 
   ngOnInit(): void {
  
-   let id:number= Number(this.activatedRoute.snapshot.paramMap.get("id"));
+   this.id= Number(this.activatedRoute.snapshot.paramMap.get("id"));
 
-   console.log(id)
-  
-   
-   this.formacionService.get(id).subscribe(
+   this.formacionService.get(this.id).subscribe(
      data=>{
+
+     
  
       this.updated_formacion=data
       this.formacion_form.controls['nombre_institucion'].setValue(data.nombre_institucion);
@@ -59,6 +58,8 @@ export class EditarformacionComponent implements OnInit {
       this.formacion_form.controls['duracion'].setValue(data.duracion);
       this.formacion_form.controls['url_logo'].setValue(data.url_logo);
 
+      
+
     })
 
   }
@@ -66,13 +67,16 @@ export class EditarformacionComponent implements OnInit {
   onSubmit():void{
 
     this.updated_formacion=this.formacion_form.value
-    this.formacionService.update(this.updated_formacion.id_formacion, this.updated_formacion).subscribe(data=>{
-
-     this.router.navigate(['formacion'])
+    
+    this.formacionService.update(this.id, this.updated_formacion)
+    .subscribe(data=>{
       
     })
     
-  
+    this.router.navigate(['home/formacion']).then(() => {
+      window.location.reload();
+    });
+    
   }
 
 

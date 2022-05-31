@@ -15,9 +15,7 @@ import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 })
 export class MyHeaderComponent implements OnInit {
   
-  @Input () item:any;
-  cancelEvent: boolean = false
- 
+
   about:About = {
    id_about: 0,
    nombre: '',
@@ -30,12 +28,10 @@ export class MyHeaderComponent implements OnInit {
  
 
 
-  constructor(private viewportScroller: ViewportScroller, 
+  constructor(
     private aboutService:AboutService,
-    private authenticatioService:AutenticacionService,
-    private router:Router,
-    
-    ) {}
+    private authService:AutenticacionService
+ ) {}
 
   ngOnInit(): void {
     
@@ -45,25 +41,11 @@ export class MyHeaderComponent implements OnInit {
       
 
       this.about=data
-      console.log(data);
-
+      
     });
 
   }
 
+ isLogged= this.authService.logged
 
-
-
-
-
-
-edit_form(){
-  this.cancelEvent = true
-    
-  this.viewportScroller.scrollToAnchor('formacion');
-}
-
-cancelHandler(): void {
-  this.cancelEvent = false;
-}
 }

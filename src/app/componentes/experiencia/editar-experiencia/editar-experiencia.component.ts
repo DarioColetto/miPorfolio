@@ -40,7 +40,7 @@ export class EditarExperienciaComponent implements OnInit {
  
    let id:number= Number(this.activatedRoute.snapshot.paramMap.get("id"));
 
-   console.log(id)
+   
   
    
    this.experienciaService.get(id).subscribe(
@@ -52,7 +52,7 @@ export class EditarExperienciaComponent implements OnInit {
       this.experiencia_form.controls['descripcion'].setValue(data.descripcion);
       this.experiencia_form.controls['ano_inicio'].setValue(data.ano_inicio);
       this.experiencia_form.controls['ano_finalizacion'].setValue(data.ano_finalizacion);
-      this.experiencia_form.controls['duracion'].setValue(data.web);
+      this.experiencia_form.controls['web'].setValue(data.web);
       this.experiencia_form.controls['url_logo'].setValue(data.url_logo);
 
     })

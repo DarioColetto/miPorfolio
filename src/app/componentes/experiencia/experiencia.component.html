@@ -1,10 +1,13 @@
 
 
 <div class="container">
-    <div class="container-header-component" >
+    <div class="container d-flex" >
         
-        <h2 class="header-title-component">Experiencia</h2>
-        <button (click)="add()" class ="btn btn-outline-secondary" id="add-button"><i class="fa fa-plus"></i></button>
+        <h2 class="me-3">Experiencia</h2>
+        <button *ngIf="isLogged"   (click)="add()" class="d-flex flex-row align-items-center btn btn-outline-secondary">
+            <i class="fa fa-plus"></i>
+            <div class="align-middle ms-2">Add</div>
+        </button>
     </div>
 
 
@@ -15,7 +18,7 @@
             <div class="row align-items-center" id="card-info-container"> 
         
                 <div class="col-2">
-                    <img  class="img-fluid" id="logo" src={{experiencia.url_logo}}>
+                    <img  class="img-fluid" id="logo" src={{experiencia.url_logo}} onerror="this.src='/assets/job.png'">
                 </div>
                 <div class="col ">  
                     <div class="container-fluid" id="card-info">     
@@ -29,10 +32,10 @@
                                 <a [href]="experiencia.web">WEB<i class="bi bi-globe"></i></a>          
                     </div>
                 </div>
-                <div class="col-1 "> 
+                <div class="col-1 " *ngIf="isLogged"  > 
                 <div class="btn-group" role="group" id="boton-group">
                     <button  class="btn btn-outline-secondary"  (click)="update(experiencia.id_experiencia)" id="btnEdit"><i class="fa fa-pencil" ></i></button>
-                    <button type="button"  (click)="del(experiencia.id_experiencia)"  class="btn btn-outline-secondary" id="btnDel"><i class="fa fa-minus"></i></button>
+                    <button type="button"  (click)="openModal(template, experiencia.id_experiencia)"  class="btn btn-outline-secondary" id="btnDel"><i class="fa fa-minus"></i></button>
                 </div>
             </div>
                 
@@ -43,3 +46,12 @@
 </div>
 
 
+<ng-template #template>
+    <div class="modal-body text-center" id="modal">
+            <div class="alert alert-warning" role="alert">
+                   Seguro que desea <strong>eliminar</strong>
+            </div>
+      <button type="button" class="btn btn-primary" (click)="confirm()" >Yes</button> 
+      <button type="button" class="btn btn-danger"  (click)="decline()" >No</button>
+    </div>
+</ng-template>

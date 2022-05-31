@@ -38,13 +38,11 @@ export class AgregarFormacionComponent implements OnInit{
     
 
     this.new_formacion=this.formacion_form.value
-    this.formacionService.add( this.new_formacion).subscribe(data=>{
-
-      this.ngOnInit()
-      this.router.navigate(['formacion'])
-
-    })
-    
+    this.formacionService.add( this.new_formacion).subscribe()
+    this.router.navigate(['home/formacion'])
+    .then(() => {
+      window.location.reload();
+    });
   }
 
 }

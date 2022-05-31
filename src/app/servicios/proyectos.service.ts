@@ -18,7 +18,7 @@ export class ProyectosService {
 
   add(proyect: Proyecto): Observable<any> {
 
-    return this.http.post<Proyecto>(`${this.url}/add`, proyect)
+    return this.http.post(`${this.url}/add`, proyect)
 
   }
 
@@ -32,7 +32,7 @@ export class ProyectosService {
   }
 
   update(id: number, proyecto: Proyecto) {
-    return this.http.put(`${this.url}/update/${id}`, proyecto)
+    return this.http.put<any>(`${this.url}/update/${id}`, proyecto)
   }
 
 

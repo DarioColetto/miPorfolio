@@ -1,7 +1,9 @@
 import { ViewportScroller } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 import { Router } from '@angular/router';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Experiencia } from 'src/app/model/Experiencia';
+import { AutenticacionService } from 'src/app/servicios/autenticacion.service';
 import { ExperienciaService } from 'src/app/servicios/experiencia.service';
 
 @Component({
@@ -12,14 +14,19 @@ import { ExperienciaService } from 'src/app/servicios/experiencia.service';
 })
 export class ExperienciaComponent implements OnInit {
 
-
+  id_for_delete!:number
+  modalRef?: BsModalRef;
   
   experienciaList!: Experiencia[];
   
 
 
-  constructor(private experienciaService: ExperienciaService,private viewportScroller: ViewportScroller,
-    private router:Router) { }
+  constructor(private experienciaService: ExperienciaService,
+    private authService:AutenticacionService,
+    private router:Router,
+    private modalService: BsModalService ) { }
+
+    isLogged= this.authService.logged
 
   ngOnInit(): void {
 
@@ -33,26 +40,35 @@ export class ExperienciaComponent implements OnInit {
 
   add():void {
     
-    this.router.navigate(['experiencia-add'])
-    this.viewportScroller.scrollToAnchor('experiencia');
-    
+    this.router.navigate(['home/experiencia-add'])
     
   }
 
 
   update(id:number){
-    this.router.navigate(['experiencia-update/',id])
+    this.router.navigate(['home/experiencia-update/',id])
   }
 
   
-  del(id: number) {
+  openModal(template: TemplateRef<any>, id:number) {
+    this.modalRef = this.modalService.show(template, {class: 'modal-sm'});
 
-    this.experienciaService.delete(id).subscribe(resp => {
 
-      console.log(resp);
-      this.ngOnInit()
+    this.id_for_delete=id
 
-    });
+    console.log(this.id_for_delete)
   }
 
+
+  confirm(): void {
+          console.log(this.id_for_delete)
+    this.experienciaService.delete(this.id_for_delete).subscribe();
+    window.location.reload();
+    this.modalRef?.hide();
+  }
+ 
+  decline(): void {
+  
+    this.modalRef?.hide();
+  }
 }

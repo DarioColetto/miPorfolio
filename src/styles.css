@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
 body{
     background-color: rgb(40,40,40);
     color: white;
@@ -13,48 +15,6 @@ html{
   scroll-behavior: smooth;
 }
 
-.component{
-    display: flex;
-    flex-direction: column;
-    width:auto;
-    
-}
-
-.container-header-component{
-    display: flex;
-    
-    
-
-    
-}
-
-
-.btn.btn-secondary{
-    float: left;
-
-    margin-left: 2%;
-  }
-  
-
-  #add-button{
-    display: flex;
-    margin-left: 2%;
-    align-items: center;
-    
-    
-
-  }
-#add-button:after{
-
-  content: "Add";
-  }
-
-#add-button i{
-  margin-right: 5px;
-} 
-  
-
-  
 #card-info-container{
 
     margin-top: 2%;
@@ -96,30 +56,12 @@ html{
 
 }
 
-.form .form-btn-group button{
-  margin-top: 3px;
-  margin-right: 5px;
+
+#modal{
+  background-color: rgb(80,80,80);
 }
 
-/* h3{
-  font-size: 3vw;
-  
-  
+.btn-group{
+  width: fit-content;
+  height: 20%;
 }
-
-h4{font-size: 2vw;}
-
-p{
-  font-size: 1.5vw;
-} */
-
-#logo{
-  width: 25vw;
-  height: auto;
-
-}
-
-/* .fa.fa-pencil,.fa.fa-minus{
-  width: 10%;
-  height:10%;
-} */

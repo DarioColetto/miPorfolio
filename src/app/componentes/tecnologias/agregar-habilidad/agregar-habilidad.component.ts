@@ -10,8 +10,6 @@ import { TecnologiasService } from 'src/app/servicios/tecnologias.service';
 })
 export class AgregarHabilidadComponent implements OnInit {
 
-  @Output() cancelEvent = new EventEmitter();
-  
   tecnologia_form = this.fb.group({
     
     nombre_tecnologia:['', Validators.required],
@@ -34,20 +32,10 @@ export class AgregarHabilidadComponent implements OnInit {
     
 
     this.new_tecnologia= this.tecnologia_form.value
-    this.tecnologiaService.add( this.new_tecnologia).subscribe(data=>{
-
-      
-
-      this.ngOnInit()
-
-    })
-    
+    this.tecnologiaService.add( this.new_tecnologia).subscribe()
+   
+    this.ngOnInit()
   }
 
-   cancel():void{
-    console.log("Canceled")
-    this.cancelEvent.emit();
-    
-    
-  }
+
 }

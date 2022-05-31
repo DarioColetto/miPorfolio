@@ -36,7 +36,7 @@ export class TecnologiasService {
   }
 
   update(id: number, tecnologia: Tecnologia) {
-    return this.http.put(`${this.url}/editar/${id}`, tecnologia)
+    return this.http.put<any>(`${this.url}/update/${id}`, tecnologia)
   }
 
 

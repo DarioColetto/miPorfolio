@@ -12,7 +12,7 @@ import { AboutService } from 'src/app/servicios/about.service';
 })
 export class EditarAboutComponent implements OnInit {
 
-  @Output() cancelEvent = new EventEmitter();
+
   about!:About;
 
 
@@ -55,18 +55,17 @@ export class EditarAboutComponent implements OnInit {
   onSubmit(){
     this.about= this.about_form.value
     
-    this.aboutService.update(this.about.id_about, this.about).subscribe(data=>{
+    this.aboutService.update(1, this.about).subscribe(data=>{
 
         })
+
+    this.router.navigate(['']).then(() => {
+      window.location.reload();
+    });
   }
 
 
-  cancel():void{
-    console.log("Canceled")
-    this.cancelEvent.emit();
-    
-    
-  }
+
 
 
 

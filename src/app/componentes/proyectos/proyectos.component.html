@@ -1,18 +1,21 @@
-<div class="container"> 
-<div class="container-header-component">
-    <h2 class="header-title-component">Proyectos</h2>
-    <button  (click)="add()" class="btn btn-outline-secondary" id="add-button"><i class="fa fa-plus"></i></button>
+<div class="container "> 
+<div class="container d-flex">
+    <h2 class="me-3">Proyectos</h2>
+    <button  *ngIf="isLogged" (click)="add()" class="d-flex flex-row align-items-center btn btn-outline-secondary">
+        <i class="fa fa-plus"></i>
+        <div class="align-middle ms-2">Add</div>
+    </button>
 </div>
 
 
 
-<div class="container" id="container-cards" >
+<div class="container " id="container-cards" >
     <div *ngFor="let proyecto of proyectos" class="container-fluid" >
           
         <div class="row align-items-center" id="card-info-container"> 
             
                 <div class="col-2 " >
-                        <img  class="img-fluid" id="logo" [src]="proyecto.url_logo" alt="https://cdn-icons-png.flaticon.com/512/1087/1087840.png" >
+                        <img  class="img-fluid" [src]="proyecto.url_logo" onerror="this.src='/assets/proyect.png'" >
                 </div>
                 <div class="col "> 
                         <div id="card-info">
@@ -22,10 +25,10 @@
                         <p>{{proyecto.tecnologias}}</p>
                         </div>
                 </div>
-                <div class="col-1"> 
+                <div *ngIf="isLogged" class="col-1"> 
                         <div class="btn-group" role="group" id="boton-group">
                                 <button  class="btn btn-outline-secondary" (click)="update(proyecto.id_proyecto)" ><i class="fa fa-pencil" ></i></button>
-                                <button type="button" (click)="del(proyecto.id_proyecto)" class="btn btn-outline-secondary"><i class="fa fa-minus"></i></button>
+                                <button type="button" (click)="openModal(template, proyecto.id_proyecto)" class="btn btn-outline-secondary"><i class="fa fa-minus"></i></button>
                         </div>
                 </div>        
         </div>                 
@@ -33,3 +36,12 @@
 </div>
 </div>  
 
+<ng-template #template>
+        <div class="modal-body text-center" id="modal">
+                <div class="alert alert-warning" role="alert">
+                       Seguro que desea <strong>eliminar</strong>
+                </div>
+          <button type="button" class="btn btn-primary" (click)="confirm()" >Yes</button> 
+          <button type="button" class="btn btn-danger"  (click)="decline()" >No</button>
+        </div>
+</ng-template>

@@ -1,26 +1,36 @@
 
 
 <div class="container" id="footer"> 
-    <div class="container-header-component">
-        <button *ngIf="item" (click)="add_social()" class="btn btn-outline-secondary" id="add-button"><i class="fa fa-plus"></i></button>
-    </div>
     
-
-    <div class="container" id="contact">
-            <div class="col"><i class="fa fa-envelope-o" ></i></div>
-            <div class="col"><p>{{about.email}}</p> </div>
         
-    </div>
+
     
-    <hr class="border-primary border-3 opacity-75">
 
-    <div class="" id="social-container">
-
-        <div *ngFor="let social of socialList" class="social-box" >
-
-            <a>
-                <i [class]="social.bootstrap_class" aria-hidden="true"></i>
-            </a>
+    
+    
+  
+    <div clas="row justify-content-center">
+            <hr class="w-50 border-primary border-3 opacity-75" id="line" >
+    </div>
+   
+    
+    <div  *ngIf="isLogged" class="btn-group ms-3" role="group">
+        <button  routerLink="/home/social-add" class="d-flex flex-row align-items-center btn btn-outline-secondary">
+            <i class="fa fa-plus"></i>
+            <div class="align-middle ms-2">Add</div>
+        </button>
+        <button   class="btn btn-outline-secondary" routerLink="/home/social-list" id="btnEdit"><i class="fa fa-pencil" ></i></button>
+      </div>
+    
+    
+    
+    <div class="container d-flex justify-content-around mt-5">
+        
+        <div *ngFor="let social of socialList">
+                <div class="d-flex justify-content-center " >
+                    <i [class]="social.bootstrap_class" ></i>  
+                </div>
+                <a [href]="social.url_social" style="color: white;">{{social.nombre_social}}</a>
         </div>
 
     </div>

@@ -1,0 +1,50 @@
+
+<div class="container ">
+    <div class="container-header-component">
+        <h2 class="header-title-component">Editar Tecnologia</h2>
+    </div>
+
+    <form class="form w-50" (ngSubmit)="onSubmit()" [formGroup]="tecnologia_form" > 
+    
+        <label for="Input1" class="form-label" >Nombre de Tecnologia</label>
+        <input 
+        
+        type="text" 
+        class="form-control" 
+        formControlName="nombre_tecnologia" 
+        id="Input1" 
+        placeholder="Nombre de Tecnologia"
+        
+        >
+
+        <label for="Textarea1" class="form-label">Descripcion</label>
+        <textarea 
+        
+        class="form-control"
+        formControlName="descripcion" 
+        id="Textarea1" 
+        rows="2"
+        placeholder="Lenguaje, Framework, IDE, etc"
+        ></textarea>
+    
+    
+        <label for="Input3" class="form-label" >Nivel</label>
+        <input 
+        
+        type="text" 
+        class="form-control" 
+        formControlName="nivel" 
+        id="Input3" 
+        placeholder="Nivel: 0-10"
+        >
+
+       
+        
+        <div class="form-btn-group">
+            <button type="submit"   class="btn btn-primary" id="btnFormAdd">Guardar</button>
+            <button type="button" routerLink='/home/tecnologias-list'  class="btn btn-primary">Cancelar</button>
+        </div> 
+</form>
+
+
+</div>

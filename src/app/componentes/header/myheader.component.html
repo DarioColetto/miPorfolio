@@ -1,37 +1,31 @@
-<div class="container-fluid" id="head-conteiner">
-    
-    <div class="row align-items-center  ">
-        
-        <div class="col">
-            <img id="argLogo" src="" alt="">
-        </div>
-           
-    </div>    
 
-
-    <div  class="container-fluid" id="bann">
-        <img  class="img-fluid" id="fotoPerfil" [src]="about.foto_perfil" >
-        <img class="img-fluid" id="banner" src="\assets\digitalBG.jpg" >
-
-    </div>
-
-
-    <div class="container" id="container-about1" >
-
-        <div class="container" id="container-about2">
-            <h1 id="name-label">{{about.nombre}}</h1>
-            <h3 id="titulo">{{about.titulo}}</h3>
-            <p>{{about.descripcion}}</p>
-        </div>
-
-        <button *ngIf="item" (click)="edit_form()" class="btn btn-outline-secondary"  id="btnEdit"><i class="fa fa-pencil" ></i></button>
-        <app-editar-about *ngIf="cancelEvent" (cancelEvent)="cancelHandler()"></app-editar-about>
-
-    </div>
-
-
-    
+<div  class="container-fluid-m-0" id="bann">
+    <img  class="img-fluid" id="fotoPerfil" [src]="about.foto_perfil" >
+    <img class="img-fluid" id="banner" src="\assets\digitalBG.jpg" >
 </div>
+
+
+<div class="container" id="container-about1" >
+            <div class="row">
+                    <div class="col-auto">
+                        <h1 id="name-label">{{about.nombre}}</h1>
+                    </div>
+                    <div class="col-1">
+                        <button *ngIf="isLogged"   class="btn btn-outline-secondary" routerLink="/home/about-update" id="btnEdit"><i class="fa fa-pencil" ></i></button>
+                    </div>
+                    <div class="row">
+                    <h3 id="titulo">{{about.titulo}}</h3>
+                    <p>{{about.descripcion}}</p>
+                </div>
+            </div>
+
+                <hr class="border-primary border-3 opacity-75">
+</div>
+
+
+
+
+    
 
 
 

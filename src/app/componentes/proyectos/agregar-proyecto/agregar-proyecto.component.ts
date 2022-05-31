@@ -13,14 +13,13 @@ import { Proyecto } from 'src/app/model/Proyecto';
 })
 export class AgregarProyectoComponent implements OnInit {
 
-    @Output() cancelEvent = new EventEmitter();
   
   proyecto_form = this.fb.group({
     
-    nombreProyecto:['', Validators.required],
+    nombre_proyecto:['', Validators.required],
     descripcion:['', Validators.required],
     tecnologias:['', Validators.required],
-    url_logo:[]
+    url_logo:['', Validators.required]
   })
 
   new_proyecto!:Proyecto
@@ -33,11 +32,11 @@ export class AgregarProyectoComponent implements OnInit {
     
     this.new_proyecto= this.proyecto_form.value
 
-    this.proyectoService.add( this.new_proyecto).subscribe(data=>{
-
-      console.log( data)})
-    
-    this.router.navigate(["proyectos"])
+    this.proyectoService.add( this.new_proyecto).subscribe()
+    this.router.navigate(["home/proyectos"])
+    .then(() => {
+      window.location.reload();
+    });
   
   }
 

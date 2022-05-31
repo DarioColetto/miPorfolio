@@ -25,11 +25,20 @@ import { AgregarHabilidadComponent } from './componentes/tecnologias/agregar-hab
 import { AgregarExperienciaComponent } from './componentes/experiencia/agregar-experiencia/agregar-experiencia.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
+import { WelcomeComponent } from './componentes/welcome/welcome.component';
+import { ContactoComponent } from './componentes/contacto/contacto.component';
+
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { TecnologiasEditComponent } from './componentes/tecnologias/tecnologias-edit/tecnologias-edit.component';
+import { TecnologiasUpdateComponent } from './componentes/tecnologias/tecnologias-update/tecnologias-update.component';
+import { SocialAddComponent } from './componentes/social/social-add/social-add.component';
+import { SocialListComponent } from './componentes/social/social-list/social-list.component';
+import { SocialUpdateComponent } from './componentes/social/social-update/social-update.component';
 
 
 
 
-
+//https://loiane.com/2017/08/how-to-add-bootstrap-to-an-angular-cli-project/
 
 
 @NgModule({
@@ -53,6 +62,13 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
     AgregarExperienciaComponent,
     HomeComponent,
     NavbarComponent,
+    WelcomeComponent,
+    ContactoComponent,
+    TecnologiasEditComponent,
+    TecnologiasUpdateComponent,
+    SocialAddComponent,
+    SocialListComponent,
+    SocialUpdateComponent,
 
   ],
   imports: [
@@ -62,6 +78,7 @@ import { NavbarComponent } from './componentes/navbar/navbar.component';
     ReactiveFormsModule,
     FormsModule,
     NgChartsModule,
+    ModalModule.forRoot()
 
   ],
 

@@ -13,13 +13,13 @@ import { ProyectosService } from 'src/app/servicios/proyectos.service';
 })
 export class EditarproyectoComponent implements OnInit {
 
-  
+  id!:number;
   updated_proyecto!:Proyecto;
 
 
  proyecto_form = this.fb.group({
   
-        nombreProyecto:[],
+        nombre_proyecto:[],
         descripcion:[],
         tecnologias:[],
         url_logo:[]
@@ -34,17 +34,19 @@ export class EditarproyectoComponent implements OnInit {
 
   ngOnInit(): void {
 
-    let id:number= Number(this.activatedRoute.snapshot.paramMap.get("id"));
+    this.id = Number(this.activatedRoute.snapshot.paramMap.get("id"));
     
     
-    this.proyectoService.get(id).subscribe(
+    this.proyectoService.get(this.id).subscribe(
       data=>{
        
        this.updated_proyecto=data
-       this.proyecto_form.controls['nombreProyecto'].setValue(data.nombre_proyecto);
+       this.proyecto_form.controls['nombre_proyecto'].setValue(data.nombre_proyecto);
        this.proyecto_form.controls['descripcion'].setValue(data.descripcion);
        this.proyecto_form.controls['tecnologias'].setValue(data.tecnologias);
        this.proyecto_form.controls['url_logo'].setValue(data.url_logo);
+
+  
 
     })
 
@@ -52,12 +54,21 @@ export class EditarproyectoComponent implements OnInit {
 
 
   onSubmit(){
+    
     this.updated_proyecto=this.proyecto_form.value
     
-    this.proyectoService.update(this.updated_proyecto.id_proyecto, this.updated_proyecto).subscribe(data=>{
 
-    this.router.navigate(['proyectos'])
-        })
+    console.log(this.updated_proyecto)
+    
+    this.proyectoService.update(this.id, this.updated_proyecto).subscribe(resp=>{
+      console.log(resp)
+    })
+
+    this.router.navigate(['home/proyectos']).then(() => {
+      window.location.reload();
+    });
+
+
 
   }
 
