@@ -7,7 +7,7 @@ import { User } from '../model/User';
 })
 export class AutenticacionService {
 
-  url = "http://localhost:8080/authorize"
+  url = "https://miporfolio-jpa.herokuapp.com/authorize"
 
   
   

@@ -9,7 +9,7 @@ import { About } from '../model/About';
 })
 export class AboutService {
 
-  url: string = "http://localhost:8080/about";
+  url: string = "https://miporfolio-jpa.herokuapp.com/about";
 
   constructor(private http: HttpClient) { }
 

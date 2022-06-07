@@ -36,8 +36,6 @@ export class FormacionComponent implements OnInit {
 
       this.formaciones = dataForm
 
-      console.log(dataForm)
-      
     });
   }
 

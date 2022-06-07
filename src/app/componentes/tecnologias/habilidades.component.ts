@@ -41,7 +41,7 @@ export class HabilidadesComponent implements OnInit {
     this.tecnologiasServive.getAll().subscribe(data => {
       this.tecnologiasList = data;
 
-      console.log(data)
+      
       let tecnologias_nombres = this.tecnologiasList.map(tecnologia => tecnologia.nombre_tecnologia)
       let tenologias_nivel =  this.tecnologiasList.map(tecnologia => tecnologia.nivel)
 

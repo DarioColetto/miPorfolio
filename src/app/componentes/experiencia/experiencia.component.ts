@@ -56,12 +56,11 @@ export class ExperienciaComponent implements OnInit {
 
     this.id_for_delete=id
 
-    console.log(this.id_for_delete)
   }
 
 
   confirm(): void {
-          console.log(this.id_for_delete)
+          
     this.experienciaService.delete(this.id_for_delete).subscribe();
     window.location.reload();
     this.modalRef?.hide();

@@ -9,7 +9,7 @@ import { Tecnologia } from '../model/Tecnologia';
 
 
 export class TecnologiasService {
-  url: string = "http://localhost:8080/tecnologia";
+  url: string = "https://miporfolio-jpa.herokuapp.com/tecnologia";
   constructor(private http: HttpClient) { }
 
 
