@@ -15,62 +15,78 @@ import { User } from 'src/app/model/User';
 })
 export class LoginComponent implements OnInit {
 
-  User!:User;
-  login_form!:FormGroup;
-
-  constructor(private fb: FormBuilder, private autenticationService:AutenticacionService, private router:Router) {}
-  
-initForm(): FormGroup {
+  User!: User;
+  login_form!: FormGroup;
+  validation:boolean = false
   
 
-  
-  return this.login_form = this.fb.group({
-      
-    username:['', Validators.required],
-    email:  ['',[Validators.required,Validators.email] ],
-    password: ['', [Validators.required, Validators.minLength(8) ] ]
-    
-  
-  })
-}
+  constructor(private fb: FormBuilder, private autenticationService: AutenticacionService, private router: Router) { }
+
+  initForm(): FormGroup {
+
+
+
+    return this.login_form = this.fb.group({
+
+      username: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(8)]]
+
+
+    })
+  }
 
 
 
   ngOnInit(): void {
 
-    this.login_form= this.initForm();
+    this.login_form = this.initForm();
   }
 
-//Metdos para validar los campos en el fomulario.
-get Username(){
-  return this.login_form.get("username")
-}
+  //Metdos para validar los campos en el fomulario.
+  get Username() {
+    return this.login_form.get("username")
+  }
 
-get Email(){
-  return this.login_form.get("email");
-}
+  get Email() {
+    return this.login_form.get("email");
+  }
 
-get Password(){
-  return this.login_form.get('password');
-}
+  get Password() {
+    return this.login_form.get('password');
+  }
 
-onSubmit(){
-  
-  
-  this.User=this.login_form.value;
-  
-  this.autenticationService.login(this.User);
+  onSubmit() {
 
-  this.router.navigate(['home/welcome'])    
-  .then(() => {
-    window.location.reload();
-  })
-  
+    
+
+    this.User = this.login_form.value;
+
+    this.autenticationService.login(this.User).subscribe(resp => {
+        
+      if (resp.response === ""){
+        
+        this.validation = true
+        
+      } 
+      else{
+        
+        this.validation = false
+        console.log("bienvenido")
+
+        this.router.navigate(['home/welcome'])
+        .then(() => {
+          window.location.reload();
+        })
+
+      }
+
 
   
-  
+    }) 
 
-}
+
+  }
 
 
 }
