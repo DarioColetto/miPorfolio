@@ -68,17 +68,18 @@ export class LoginComponent implements OnInit {
         
         this.validation = true
         
+      
       } 
       else{
         
         this.validation = false
-        console.log("bienvenido")
+        localStorage.setItem('token', resp.response)
 
         this.router.navigate(['home/welcome'])
         .then(() => {
           window.location.reload();
         })
-
+        console.log("bienvenido")
       }
 
 

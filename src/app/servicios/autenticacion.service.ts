@@ -8,7 +8,7 @@ import { catchError, Observable } from 'rxjs';
 })
 export class AutenticacionService {
 
-  url = "http://localhost:8080/authorize"
+  url = "https://miporfolio-jpa.herokuapp.com/authorize"
 
   
   
