@@ -8,7 +8,7 @@ import { Social } from '../model/Social';
 })
 export class SocialService {
 
-  url: string = "https://miporfolio-jpa.herokuapp.com/social";
+  url: string = "http://localhost:8080/social";
   constructor(private http: HttpClient) { }
 
 

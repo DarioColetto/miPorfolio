@@ -1,53 +1,30 @@
 
-.conteiner-social{
-    display: flex;
-    height: auto;
-    align-content: space-between;
-    align-items: center;
-
-
-}
-
-
-#socialButtons{    
-    width: 40px;
-    height: 40px;
-    padding: 40px;
-
-}
-
 
 #bann{
-    display: flex;
-    height: fit-content;
-    width: 100%;
-    justify-content: left;
-    padding: 0%;
-    
-    
+    max-height: 250px;
 }
+
 #banner{
     
-    height: auto;
-    width: 100%;
-    max-height: 250px;
+    resize:both;
+    overflow:auto;
+    
     object-fit: cover;
-    z-index: 1;
     mask-image: linear-gradient(to right ,transparent ,black );
+    
     
 
 }
 
 #fotoPerfil{
-    width: 350px;
-    height: 250px;
+
+    max-height: 250px;
 
     object-fit: cover;
-    
-    border-bottom-left-radius: 30px;
-   
-    z-index: 2;
 
+    
+    
+    border-bottom-left-radius: 20px;
     mask-image: linear-gradient(to left ,transparent ,rgb(40,40,40) );
 }
 
@@ -75,14 +52,3 @@
 }
 
 
-#nav{
-    
-    align-items: center;
-    justify-content: left;
-    width: 100%;
-    background-color: rgb(40,40,40);
-    z-index: 1;
-    box-shadow: 0, 2px, 5px, rgb(18, 17, 17);
-    margin-bottom: 3%;
-
-}

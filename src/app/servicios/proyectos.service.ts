@@ -9,7 +9,7 @@ import { Proyecto } from '../model/Proyecto';
 export class ProyectosService {
 
 
-  url: string = "https://miporfolio-jpa.herokuapp.com/proyecto";
+  url: string = "http://localhost:8080/proyecto";
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<Proyecto[]> {

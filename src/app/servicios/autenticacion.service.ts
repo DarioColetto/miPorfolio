@@ -1,33 +1,27 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { User } from '../model/User';
+import { catchError, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AutenticacionService {
 
-  url = "https://miporfolio-jpa.herokuapp.com/authorize"
+  url = "http://localhost:8080/authorize"
 
   
   
   constructor(private http: HttpClient) { };
-
-
-  login(user: User ) {
-    
-    this.http.post<any>(`${this.url}/${user.username}`, user )
-    .subscribe(response=>{
+  
   
 
-      localStorage.setItem('token', response.token)
+  login(user: User ): Observable<any> {
 
-      console.log("You are in!")
-    })
-    
-   
- 
-  }
+    return this.http.post<any>( this.url, user )
+
+    }
+  
 
 
   //Elimina el token al cerrar secion
@@ -41,4 +35,14 @@ export class AutenticacionService {
     return (localStorage.getItem('token') !== null);
   }
 
+
+
+
+
+
+
+
+
+  
 }
+

@@ -8,7 +8,7 @@ import { Formacion } from '../model/Formacion';
 })
 export class FormacionService {
 
-  url: string = "https://miporfolio-jpa.herokuapp.com/formacion";
+  url: string = "http://localhost:8080/formacion";
   constructor(private http: HttpClient) { }
 
 

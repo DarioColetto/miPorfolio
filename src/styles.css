@@ -15,19 +15,12 @@ html{
   scroll-behavior: smooth;
 }
 
-#card-info-container{
 
-    margin-top: 2%;
-    margin-bottom: 2%;
-
-  }
-  
-  #card-info{
-     padding: 2%;
-      background: rgb(70, 70, 70);
-      border-radius: 10px;
-      
-         
+#card-info{
+  padding: 3%;  
+  background: rgb(70, 70, 70);
+  border-radius: 10px;
+       
   }
   
 
@@ -64,4 +57,9 @@ html{
 .btn-group{
   width: fit-content;
   height: 20%;
+}
+
+#logos{
+  max-height: 150px;
+
 }

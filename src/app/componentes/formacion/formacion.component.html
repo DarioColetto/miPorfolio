@@ -1,55 +1,65 @@
 <div class="container">
-    <div class="container d-flex" >
+    <div class="container d-flex">
         <h2 class="me-3">Formacion</h2>
-        <button *ngIf="isLogged"   (click)="add()" class="d-flex flex-row align-items-center btn btn-outline-secondary">
+        <button *ngIf="isLogged" (click)="add()" class="d-flex flex-row align-items-center btn btn-outline-secondary">
             <i class="fa fa-plus"></i>
             <div class="align-middle ms-2">Add</div>
         </button>
     </div>
-    
+
 
     <div class="container">
-        
-        <div *ngFor="let formacion of formaciones" class="container-fluid"   >
-          
-            <div class="row " id="card-info-container"> 
-               
-                <div class="col-2">
-                    <img   class="img-fluid"  src={{formacion.url_logo}}>
+
+        <div *ngFor="let formacion of formaciones" class="container-fluid m-2 p-2">
+
+            <div class="row">
+                <div class="col">
+                    <div id="card-info">
+
+                        <div class="row">
+                            <h3>{{formacion.titulo}}</h3>
+                            <h4>{{formacion.nombre_institucion}}</h4>
+                        </div>
+                        <div class="row">
+                            <p>{{formacion.descripcion}}</p>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-auto">
+                                <p class="mb-0" *ngIf="formacion.duracion !=0">Duracion: {{formacion.duracion}} hs</p>
+                                <p class="mb-0" *ngIf="formacion.ano_inicio">Inicio: {{formacion.ano_inicio}}</p>
+                                <p class="mb-0" *ngIf="formacion.ano_finalizacion !=0; else elseBlock">Finalizacion:
+                                    {{formacion.ano_finalizacion}}</p>
+                                <ng-template #elseBlock>en curso</ng-template>
+                            </div>
+                            <div class="col d-flex justify-content-start"><img class="img-fluid"
+                                    src={{formacion.url_logo}} id="logos"></div>
+                        </div>
+
+
+                    </div>
+                    <div *ngIf="isLogged" class="col-1">
+                        <div class="btn-group" role="group" id="boton-group">
+                            <button class="btn btn-outline-secondary" (click)="update(formacion.id_formacion)"
+                                id="btnEdit"><i class="fa fa-pencil"></i></button>
+                            <button type="button" (click)="openModal(template, formacion.id_formacion )"
+                                class="btn btn-outline-secondary" id="btnDel"><i class="fa fa-minus"></i></button>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="col">  
-                    <div  id="card-info">
-
-                       
-                                <h3>{{formacion.titulo}}</h3>
-                                <h4>{{formacion.nombre_institucion}}</h4>      
-                                    <p >{{formacion.descripcion}}</p>
-                                    <p *ngIf="formacion.duracion !=0">Duracion: {{formacion.duracion}} hs</p>
-                                    <p *ngIf="formacion.ano_inicio">Inicio: {{formacion.ano_inicio}}</p>
-                                    <p *ngIf="formacion.ano_finalizacion !=0; else elseBlock">Finalizacion: {{formacion.ano_finalizacion}}</p>
-                                    <ng-template #elseBlock>en curso</ng-template>         
-                        
-                    </div>
-                <div *ngIf="isLogged" class="col-1"> 
-                    <div class="btn-group" role="group" id="boton-group">
-                        <button  class="btn btn-outline-secondary" (click)="update(formacion.id_formacion)" id="btnEdit"><i class="fa fa-pencil" ></i></button>
-                        <button type="button"  (click)="openModal(template, formacion.id_formacion )"  class="btn btn-outline-secondary" id="btnDel"><i class="fa fa-minus"></i></button>
-                    </div>
-                </div>
-                
-            </div> 
-            
+            </div>
         </div>
     </div>
 </div>
 
 <ng-template #template>
     <div class="modal-body text-center" id="modal">
-            <div class="alert alert-warning" role="alert">
-                   Seguro que desea <strong>eliminar</strong>
-            </div>
-      <button type="button" class="btn btn-primary" (click)="confirm()" >Yes</button> 
-      <button type="button" class="btn btn-danger"  (click)="decline()" >No</button>
+        <div class="alert alert-warning" role="alert">
+            Seguro que desea <strong>eliminar</strong>
+        </div>
+        <button type="button" class="btn btn-primary" (click)="confirm()">Yes</button>
+        <button type="button" class="btn btn-danger" (click)="decline()">No</button>
     </div>
 </ng-template>
